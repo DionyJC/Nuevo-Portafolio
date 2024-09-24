@@ -18,7 +18,7 @@ const iconVariants = (duration) => ({
 
 const Technologies = () => {
   return (
-    <div id='technologies' className='py-24 mb-24'>
+    <div id='technologies' className='py-24 '>
         <h1 className='my-20 text-center text-5xl text-gray-600 font-bold mt-10'>Tecnologías</h1>
         <div className='flex flex-wrap  items-center justify-center gap-4 mb-28'>
             

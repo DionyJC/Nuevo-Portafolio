@@ -3,7 +3,7 @@ import imgPerfil from '../assets/image.png'
 
 const Hero = () => {
   return (
-    <section id='inicio' className='sm:flex justify-center items-center h-screen py-4 px-10 mt-28 sm:mt-0 sm:px-20 gap-24'>
+    <section id='inicio' className='sm:flex justify-center items-center  py-4 px-10 mt-28 sm:mt-28 sm:px-20 gap-24'>
       <div className="space-y-6"> {/* Espacio entre el título y el contenido */}
         <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-gray-600 font-concert">
           <span className="text-[#ED7D31]">Hola</span>, soy <br />
