@@ -3,6 +3,7 @@ import imgDos from "../assets/2.jpg";
 import imgTres from "../assets/3.jpg";
 import imgCuatro from "../assets/4.jpg";
 import imgCinco from "../assets/5.png";
+import imgSeis from "../assets/6.png";
 
 const Projects = () => {
   return (
@@ -150,6 +151,34 @@ const Projects = () => {
                 <ul className="list-disc list-inside mt-2">
                   <li>HTML5</li>
                   <li>CSS3</li>
+                </ul>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <a
+            href="https://cats-styles-6jkakiv9o-diony-caros-projects.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <img
+              src={imgSeis}
+              alt="Landing Page - Easybank"
+              className="w-full h-48 sm:h-56 object-cover"
+            />
+            <div className="p-6">
+              <h2 className="text-xl font-bold text-white text-center mb-4">
+                CastStyles
+              </h2>
+              <p className="text-white text-center">
+                Tecnologías usadas:
+                <ul className="list-disc list-inside mt-2">
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                  <li>Javascript</li>
+                  <li>Gsap</li>
                 </ul>
               </p>
             </div>
