@@ -6,7 +6,6 @@ import imgCinco from "../assets/5.png";
 import imgSeis from "../assets/6.png";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
   const projects = [
@@ -17,7 +16,6 @@ const Projects = () => {
       description: "Aplicación web para descubrir y explorar diferentes recetas de alimentos",
       tech: ["Tailwind CSS", "Next.js", "The Meal DB API", "Framer Motion"],
       url: "https://next-menu-mocha.vercel.app/",
-      github: "#",
     },
     {
       id: 2,
@@ -26,7 +24,6 @@ const Projects = () => {
       description: "Aplicación web para gestionar y controlar los gastos personales",
       tech: ["React", "Tailwind CSS"],
       url: "https://control-gastos-red.vercel.app/",
-      github: "#",
     },
     {
       id: 3,
@@ -35,7 +32,6 @@ const Projects = () => {
       description: "Aplicación web completa con operaciones CRUD utilizando el stack MERN",
       tech: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS"],
       url: "https://mern-crud-frontend-sigma.vercel.app/",
-      github: "#",
     },
     {
       id: 4,
@@ -44,7 +40,6 @@ const Projects = () => {
       description: "Aplicación de escritorio para administrar una biblioteca de libros",
       tech: ["JavaFX", "MySQL"],
       url: "https://www.youtube.com/watch?v=kcMOSFavAcY&list=LL&index=29&t=206s",
-      github: "#",
     },
     {
       id: 5,
@@ -53,7 +48,6 @@ const Projects = () => {
       description: "Página de aterrizaje para un banco digital con diseño moderno",
       tech: ["HTML5", "CSS3"],
       url: "https://easybank-web-red.vercel.app/",
-      github: "#",
     },
     {
       id: 6,
@@ -62,7 +56,6 @@ const Projects = () => {
       description: "Sitio web con animaciones y diseño moderno sobre gatos",
       tech: ["HTML5", "CSS3", "Javascript", "Gsap"],
       url: "https://cats-styles-6jkakiv9o-diony-caros-projects.vercel.app/",
-      github: "#",
     },
   ];
 
@@ -113,13 +106,15 @@ const Projects = () => {
         viewport={{ once: true, amount: 0.1 }}
       >
         {projects.map((project) => (
-          <motion.div
+          <motion.a
             key={project.id}
-            className="relative rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 h-[320px] cursor-pointer group"
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 h-[350px] sm:h-[320px] cursor-pointer group"
             variants={cardVariants}
             onMouseEnter={() => setHoveredId(project.id)}
             onMouseLeave={() => setHoveredId(null)}
-            onClick={() => window.open(project.url, '_blank', 'noopener,noreferrer')}
           >
             <motion.div 
               className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10"
@@ -130,7 +125,7 @@ const Projects = () => {
               transition={{ duration: 0.3 }}
             />
             
-            <motion.div className="h-[180px] overflow-hidden">
+            <motion.div className="h-[150px] sm:h-[180px] overflow-hidden">
               <motion.img
                 src={project.image}
                 alt={project.title}
@@ -144,60 +139,42 @@ const Projects = () => {
             </motion.div>
             
             <motion.div 
-              className="p-4 z-20 text-gray-800 dark:text-white relative"
+              className="p-3 sm:p-4 z-20 text-gray-800 dark:text-white relative"
             >
-              <h2 className="text-xl font-bold mb-1 group-hover:text-[#ED7D31] transition-colors">{project.title}</h2>
-              <p className="text-xs text-gray-600 dark:text-gray-300 mb-2 line-clamp-2">{project.description}</p>
+              <h2 className="text-lg sm:text-xl font-bold mb-1 group-hover:text-[#ED7D31] transition-colors line-clamp-1">{project.title}</h2>
+              <p className="text-xs text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">{project.description}</p>
               
-              <div className="flex flex-wrap gap-1 mb-2">
+              <div className="flex flex-wrap gap-1">
                 {project.tech.slice(0, 3).map((tech, index) => (
                   <span 
                     key={index} 
-                    className="text-[10px] px-2 py-1 bg-[#ED7D31]/80 rounded-full text-white"
+                    className="text-[10px] px-2 py-0.5 bg-[#ED7D31]/80 rounded-full text-white"
                   >
                     {tech}
                   </span>
                 ))}
                 {project.tech.length > 3 && (
-                  <span className="text-[10px] px-2 py-1 bg-gray-500/80 rounded-full text-white">
+                  <span className="text-[10px] px-2 py-0.5 bg-gray-500/80 rounded-full text-white">
                     +{project.tech.length - 3}
                   </span>
                 )}
               </div>
               
               <motion.div 
-                className="flex gap-2 absolute bottom-4 right-4"
-                initial={{ opacity: 0.7 }}
+                className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-[#ED7D31] text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={{ scale: 0.9 }}
                 animate={{ 
-                  opacity: hoveredId === project.id ? 1 : 0.7,
-                  scale: hoveredId === project.id ? 1.1 : 1
+                  scale: hoveredId === project.id ? 1 : 0.9 
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <a 
-                  href={project.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-1.5 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors text-white z-30"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FaGithub className="text-sm" />
-                </a>
-                <a 
-                  href={project.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-1.5 bg-[#ED7D31] rounded-full hover:bg-[#ED7D31]/80 transition-colors text-white z-30"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FaExternalLinkAlt className="text-sm" />
-                </a>
+                Ver proyecto
               </motion.div>
             </motion.div>
             
             {/* Efecto de hover */}
             <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </motion.div>
+          </motion.a>
         ))}
       </motion.div>
     </section>
