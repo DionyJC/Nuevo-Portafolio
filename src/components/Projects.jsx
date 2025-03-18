@@ -9,16 +9,16 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col mx-auto pb-10 py-4 px-6 sm:px-20"
+      className="flex flex-col mx-auto pb-10 py-4 px-6 sm:px-20 dark:bg-gray-900 transition-colors duration-300"
     >
-      <h1 className="text-4xl sm:text-5xl text-gray-600 font-bold text-center">
+      <h1 className="text-4xl sm:text-5xl text-gray-600 dark:text-gray-300 font-bold text-center">
         Proyectos
       </h1>
 
       {/* Grid responsivo para las cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
         {/* Card de cada proyecto */}
-        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div className="group bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <a
             href="https://next-menu-mocha.vercel.app/"
             target="_blank"
@@ -46,7 +46,7 @@ const Projects = () => {
           </a>
         </div>
 
-        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div className="group bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <a
             href="https://control-gastos-red.vercel.app/"
             target="_blank"
@@ -73,7 +73,7 @@ const Projects = () => {
           </a>
         </div>
 
-        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 ">
+        <div className="group bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 ">
           <a
             href="https://mern-crud-frontend-sigma.vercel.app/"
             target="_blank"
@@ -103,7 +103,7 @@ const Projects = () => {
           </a>
         </div>
 
-        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div className="group bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <a
             href="https://www.youtube.com/watch?v=kcMOSFavAcY&list=LL&index=29&t=206s"
             target="_blank"
@@ -130,7 +130,7 @@ const Projects = () => {
           </a>
         </div>
 
-        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div className="group bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <a
             href="https://easybank-web-red.vercel.app/"
             target="_blank"
@@ -156,7 +156,7 @@ const Projects = () => {
             </div>
           </a>
         </div>
-        <div className="group bg-gray-900 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div className="group bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <a
             href="https://cats-styles-6jkakiv9o-diony-caros-projects.vercel.app/"
             target="_blank"

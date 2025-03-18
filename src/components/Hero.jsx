@@ -3,9 +3,9 @@ import imgPerfil from '../assets/image.png'
 
 const Hero = () => {
   return (
-    <section id='inicio' className='sm:flex justify-center items-center  py-4 px-10 mt-28 sm:mt-28 sm:px-20 gap-24'>
+    <section id='inicio' className='sm:flex justify-center items-center py-4 px-10 mt-20 sm:mt-20 sm:px-20 gap-24 dark:bg-gray-900 transition-colors duration-300'>
       <div className="space-y-6"> {/* Espacio entre el título y el contenido */}
-        <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-gray-600 font-concert">
+        <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-gray-600 dark:text-gray-300 font-concert">
           <span className="text-[#ED7D31]">Hola</span>, soy <br />
           <TypeAnimation
             sequence={[
@@ -21,7 +21,7 @@ const Hero = () => {
             repeat={Infinity}
           />
         </h1>
-        <p className="text-gray-600 text-lg lg:text-2xl sm:text-lg font-bold">
+        <p className="text-gray-600 dark:text-gray-400 text-lg lg:text-2xl sm:text-lg font-bold">
           Programando el futuro,{" "}
           <span className="text-[#ED7D31] font-bold">un código a la vez</span>
         </p>
