@@ -1,11 +1,34 @@
 import { IoMenuSharp, IoClose } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import logo from "../assets/compu.png";
 import { Link } from "react-scroll"; // Importa Link de react-scroll
 import ThemeToggle from "./ThemeToggle"; // Importamos el toggle de tema
+import { ThemeContext } from "../context/ThemeContext"; // Importamos el contexto del tema
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { theme } = useContext(ThemeContext); // Obtenemos el tema actual
+
+  // Efecto para detectar el scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      // Cambiar estado cuando se desplaza más de 50px
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Añadir evento de scroll
+    window.addEventListener('scroll', handleScroll);
+
+    // Limpiar el evento cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const nav = [
     {
@@ -28,11 +51,21 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 mx-auto py-4 px-10 sm:px-20 flex justify-between items-center font-concert">
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 mx-auto py-4 px-10 sm:px-20 flex justify-between items-center font-concert transition-all duration-300 ease-in-out ${
+        scrolled 
+          ? theme === 'dark'
+            ? 'bg-gray-900/95 shadow-md backdrop-blur-sm'
+            : 'bg-white/95 shadow-md backdrop-blur-sm'
+          : theme === 'dark'
+            ? 'bg-gray-900/80'
+            : 'bg-transparent'
+      }`}
+    >
       {/* Logo */}
       <div className="flex items-center">
         <img src={logo} alt="logotipo" className="w-14 h-14" />
-        <h1 className="text-4xl text-orange-400 font-bold">Dev</h1>
+        <h1 className="text-4xl font-bold text-orange-400">Dev</h1>
       </div>
 
       {/* Desktop Menu */}
@@ -46,7 +79,13 @@ const Navbar = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="text-2xl font-medium text-gray-600 dark:text-[#ED7D31] hover:text-orange-400 dark:hover:text-orange-300 cursor-pointer"
+              className={`text-2xl font-medium cursor-pointer transition-colors duration-300 ${
+                theme === 'dark'
+                  ? 'text-gray-200 hover:text-orange-400'
+                  : scrolled
+                    ? 'text-gray-700 hover:text-orange-500'
+                    : 'text-gray-800 hover:text-orange-400'
+              }`}
             >
               {item.name}
             </Link>
@@ -64,7 +103,11 @@ const Navbar = () => {
         
         {/* Menu Toggle Button */}
         <div
-          className="text-4xl text-gray-600 dark:text-[#ED7D31] cursor-pointer"
+          className={`text-4xl cursor-pointer transition-colors duration-300 ${
+            theme === 'dark'
+              ? 'text-gray-200 hover:text-orange-400'
+              : 'text-gray-700 hover:text-orange-500'
+          }`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <IoClose /> : <IoMenuSharp />}
@@ -73,7 +116,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="sm:hidden bg-white dark:bg-gray-800 absolute top-20 left-0 w-full h-[220px] py-8 px-20 flex flex-col gap-4 items-center justify-center transition-transform duration-150">
+        <ul className={`sm:hidden absolute top-20 left-0 w-full h-[220px] py-8 px-20 flex flex-col gap-4 items-center justify-center transition-transform duration-150 ${
+          theme === 'dark'
+            ? 'bg-gray-900/95 backdrop-blur-sm shadow-md'
+            : 'bg-white/95 backdrop-blur-sm shadow-md'
+        }`}>
           {nav.map((item, index) => (
             <Link
               key={index}
@@ -82,7 +129,11 @@ const Navbar = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="text-2xl font-medium text-gray-600 dark:text-[#ED7D31] hover:text-orange-400 dark:hover:text-orange-300 cursor-pointer text-center flex"
+              className={`text-2xl font-medium cursor-pointer text-center flex transition-colors duration-300 ${
+                theme === 'dark'
+                  ? 'text-gray-200 hover:text-orange-400'
+                  : 'text-gray-700 hover:text-orange-500'
+              }`}
             >
               {item.name}
             </Link>
